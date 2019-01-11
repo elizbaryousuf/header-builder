@@ -1,28 +1,81 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
+import Header from './components/Header.jsx';
+import Components from './Components.jsx';
+import AddElementButton from './AddElementButton.jsx';
+import ElementsPanel from './ElementsPanel';
 import './App.css';
 
+import { fetchElements, saveElements, updateElement } from './actions/elements';
+import PropTypes from 'prop-types';
+import { connect } from 'react-redux';
+
 class App extends Component {
-  render() {
-    return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            Edit <code>src/App.js</code> and save to reload.
-          </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-        </header>
-      </div>
-    );
-  }
+    constructor(props) {
+        super(props);
+
+        this.state = {
+            rowDevice: 'desktop',
+        };
+    }
+
+    static propTypes =  {
+        elements: PropTypes.object.isRequired
+    };
+
+    componentDidMount() {
+        this.props.fetchElements();
+    }
+
+    togglePanel = (par) => {
+        this.setState({
+            isOpenPanel: par
+        });
+    }
+
+    saveElements = () => {
+        const elements = {
+            rows: this.props.elements.rows,
+            columns: this.props.elements.columns,
+            elements: this.props.elements.elements,
+        }
+        this.props.saveElements( elements );
+    }
+
+    changeRowDevice = ( device ) => {
+        this.setState({
+            rowDevice: device
+        });
+    }
+
+    render() {
+
+        return (
+          <div className="App">
+            <Header changeRowDevice={this.changeRowDevice} saveElements={this.saveElements} />
+
+            <div className="App-content">
+                <Components rowDevice={this.state.rowDevice} isOpenPanel={this.isOpenPanel} />
+
+                <AddElementButton togglePanel={ this.togglePanel } />
+            </div>
+
+            <ElementsPanel rowDevice={this.state.rowDevice} />
+          </div>
+        );
+    }
 }
 
-export default App;
+
+const mapStateToProps = ({ elements }) => {
+    return {
+        elements
+    }
+};
+
+const mapDispatchToProps = {
+    fetchElements,
+    saveElements,
+    updateElement,
+};
+
+export default connect(mapStateToProps,mapDispatchToProps)(App);

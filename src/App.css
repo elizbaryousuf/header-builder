@@ -1,32 +1,188 @@
+.appearance_page_hyulin-header-builder #wpcontent {
+  padding-left: 0;
+}
+
+#app-header-builder {
+    overflow: hidden;
+    margin: 0;
+}
+
 .App {
-  text-align: center;
+    min-height: 100vh;
+    background-color: #fff;
+}
+
+.App-header #setting-error-tgmpa {
+    display: none;
+}
+
+.App-header .header-left {
+    float: left;
+    width: 50%;
+}
+
+.App-header .header-right {
+    float: right;
+    width: 50%;
+    text-align: right;
 }
 
 .App-logo {
-  animation: App-logo-spin infinite 20s linear;
-  height: 40vmin;
+    display: inline-block;
+    font-size: 40px;
+    color: #fff;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+.App-header .btn {
+    font-size: 14px;
+    font-weight: 700;
+    padding: 14px 40px;
+    color: #5a3fd6;
+    background-color: #fff;
+    text-decoration: none;
+    border-radius: 3px;
+    border: 2px solid transparent;
 }
 
-.App-link {
-  color: #61dafb;
+.App-header .preview-site {
+    border-color: #fff;
+    color: #fff;
+    background-color: transparent;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.App-header .save-elements {
+    margin-left: 15px;
+}
+
+.App-components {
+    border: 2px solid #593fd6;
+    padding: 20px;
+}
+
+.App-content {
+    padding: 40px 50px;
+}
+
+.App-component-column {
+    float: left;
+    width: 29.9%;
+    padding: 20px 15px;
+    margin-right: 15px;
+    border: 2px dashed #999;
+    min-height: 50px;
+    position: relative;
+}
+
+.App-component-column:last-child {
+    margin-right: 0;
+}
+
+.App-component-column:last-of-type>.ui-resizable-e {
+    display: none !important;
+}
+
+.App-component-column .App-component-element {
+    padding: 15px 20px;
+    margin-bottom: 5px;
+    background-color: #fff;
+}
+
+.App-component-column .App-component-element .element-title {
+    font-size: 14px;
+    font-weight: 700;
+    margin: 0;
+}
+
+.App-add-component {
+    padding: 15px 15px;
+    margin-top: 15px;
+    border: 2px dashed #999;
+    text-align: center;
+}
+
+.App-add-component span {
+    font-weight: 700;
+    color: #999;
+    cursor: pointer;
+}
+
+.App-elements-panel .App-elements-panel-elements,
+.App-elements-panel .App-elements-panel-element-edit-element {
+    border-radius: 3px;
+    background-color: #fff;
+    margin-right: auto;
+    margin-left: auto;
+    position: fixed;
+    top: 50%;
+    right: 0;
+    left: 0;
+    z-index: 1;
+    transform: translateY(-50%);
+}
+
+.App-elements-panel .App-elements-panel-elements {
+    width: 60%;
+}
+
+.App-elements-panel .App-elements-panel-element-edit-element {
+    width: 40%;
+}
+
+.App-elements-panel .App-elements-panel-elements.is-open,
+.App-elements-panel .App-elements-panel-element-edit-element.is-open {
+    display: block;
+}
+
+.App-elements-panel-element-edit-element .elements-form {
+    padding: 25px;
+}
+
+.App-elements-panel-element-edit-element .elements-form .form-item {
+    margin-bottom: 15px;
+}
+
+.App-elements-panel-element-edit-element .elements-form .form-label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+.App-elements-panel-element-edit-element .elements-form input[type="text"],
+.App-elements-panel-element-edit-element .elements-form select {
+    width: 100%;
+    padding: 10px 15px;
+}
+
+.pull-left {
+    float: left;
+}
+
+.pull-right {
+    float: right;
+}
+
+.App-header:before,
+.App-header:after,
+.App-component-row:before,
+.App-component-row:after {
+    display: table;
+    content: " ";
+    table-layout: fixed;
+}
+
+.App-header:after,
+.App-component-row:after {
+    clear: both;
+}
+
+.sortable-placeholder {
+    height: 40px;
+}
+
+.ui-resizable-e {
+    cursor: col-resize;
+    width: 7px;
+    position: absolute;
+    right: -5px;
+    top: 0;
+    height: 100%;
 }

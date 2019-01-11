@@ -1,0 +1,53 @@
+.App-header {
+	display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+    width: 100%;
+    -webkit-justify-content: space-between;
+    justify-content: space-between;
+    -ms-flex-align: center;
+    -webkit-align-items: center;
+    align-items: center;
+    padding: 0 50px;
+    background: #5a3fd6;
+	box-sizing: border-box;
+	
+	.App-logo {
+
+		.header-layout-title {
+			display: inline-block;
+			font-size: 14px;
+			margin-top: 3px;
+			margin-left: 5px;
+			vertical-align: top;
+		}
+	}
+
+	.header-device-menu {
+		margin: 0;
+
+		li {
+			display: inline-block;
+			margin: 0;
+
+			a {
+				display: block;
+				font-size: 14px;
+				font-weight: 600;
+				padding: 15px 25px;
+				color: #fff;
+				border-radius: 3px 3px 0 0;
+				text-decoration: none;
+
+				&.is-active {
+					color: #5a3fd6;
+					background-color: #fff;
+				}
+
+				&:focus {
+					box-shadow: none;
+				}
+			}
+		}
+	}
+}
