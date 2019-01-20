@@ -2,7 +2,7 @@ import {
   FETCH_PANEL_ELEMENTS_PENDING,
   FETCH_PANEL_ELEMENTS_FULFILLED,
   FETCH_PANEL_ELEMENTS_REJECTED,
-} from '../actions/panelElements';
+} from '../actions/ActionTypes';
 
 const initialState = {
   fetching: false,

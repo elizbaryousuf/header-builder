@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import Element from './Element';
+import Element from './Element.jsx';
 import { connect } from 'react-redux';
 import { updateColumn } from './actions/elements';
 import { elementID, setOpen } from './actions/panels';
@@ -29,6 +29,8 @@ class Column extends Component {
 
         this.currentSize = this.$node.outerWidth();
         this.nextCurrentSize = this.$node.next().outerWidth();
+
+        /*
         this.$node.resizable({
             containment: ".App-component-row",
             handles: 'e',
@@ -36,6 +38,9 @@ class Column extends Component {
             resize: ( event, ui ) => this.onResize( event, ui ),
             start: ( event, ui ) => this.onStart( event, ui ),
         });
+        */
+
+        
     }
 
     onStart = ( event, ui ) => {
@@ -52,9 +57,12 @@ class Column extends Component {
         //currentSize + nextElementCurrentSize - newSize
         //console.log(ui.element.innerWidth(),ui.element.next().innerWidth())
 
+        /*
         ui.element.css({
             width: (width/parent.width()*100 ).toFixed(3) +"%",
         });
+
+        */
 
         ui.element.next().css({
           width: (nextSize/parent.width()*100 ).toFixed(3) +"%",
@@ -99,6 +107,23 @@ class Column extends Component {
       });
     }
 
+    handleMouseDown = (e) => {
+        e.preventDefault(); 
+        console.log('mouse-down')
+        window.addEventListener('mousemove', this.resize, false);
+    }
+
+    resize = (e) => {
+        e.preventDefault(); 
+        console.log(e.clientX)
+    }
+
+    handleMouseUp = (e) => {
+        e.preventDefault(); 
+        console.log('mouse-up')
+        window.removeEventListener('mousemove', this.resize, false);
+    }
+
     render() {
         const elementsOrder = this.props.column.elements;
         const elements      = this.props.elements.elements;
@@ -111,7 +136,7 @@ class Column extends Component {
         } );
         
         return (
-            <div className="App-component-column" data-id={ this.props.id } ref="sortable" onResize={()=>{ alert() }}>
+            <div className="App-component-column" data-id={ this.props.id } ref="sortable">
                 <div className="column-btns">
                     <span><FontAwesomeIcon icon={ faTimes } /></span>
                     <span><FontAwesomeIcon icon={ faCog } /></span>
@@ -120,6 +145,7 @@ class Column extends Component {
                     { elementList }
                     <span className="add-elemenet" onClick={this.addElement}>Add Element</span>
                 </div>
+                <div className="column-resize" onMouseDown={this.handleMouseDown} onMouseUp={this.handleMouseUp}></div>
             </div>
         );
     }

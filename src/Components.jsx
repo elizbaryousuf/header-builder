@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import Row from './Row';
+import Row from './Row.jsx';
 
 class Components extends Component {
   componentDidMount() {

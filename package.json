@@ -12,6 +12,7 @@
     "react-grid-layout": "^0.16.6",
     "react-redux": "^6.0.0",
     "react-scripts": "2.1.1",
+    "react-split": "^2.0.4",
     "redux": "^4.0.1",
     "redux-devtools-extension": "^2.13.7",
     "redux-promise-middleware": "^5.1.1",

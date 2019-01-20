@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import Header from './components/Header.jsx';
 import Components from './Components.jsx';
 import AddElementButton from './AddElementButton.jsx';
-import ElementsPanel from './ElementsPanel';
+import ElementsPanel from './ElementsPanel.jsx';
 import './App.css';
 
 import { fetchElements, saveElements, updateElement } from './actions/elements';

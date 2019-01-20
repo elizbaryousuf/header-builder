@@ -18,7 +18,7 @@ import {
   SAVE_ELEMENTS_REJECTED,
 
   UPDATE_ELEMENT_ATTRS,
-} from '../actions/elements';
+} from '../actions/ActionTypes';
 
 const initialState = {
   fetching: false,

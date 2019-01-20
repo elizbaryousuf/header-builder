@@ -1,11 +1,11 @@
 import axios from 'axios';
+import {
+  FETCH_PANEL_ELEMENTS_PENDING,
+  FETCH_PANEL_ELEMENTS_FULFILLED,
+  FETCH_PANEL_ELEMENTS_REJECTED,
+} from './ActionTypes';
 
 const API_BASE = 'http://localhost/wordpress/nucleus-themes/hyulin/wp-json/header-builder';
-
-// fetch panel elements
-export const FETCH_PANEL_ELEMENTS_PENDING = 'FETCH_PANEL_ELEMENTS_PENDING';
-export const FETCH_PANEL_ELEMENTS_FULFILLED = 'FETCH_PANEL_ELEMENTS_FULFILLED';
-export const FETCH_PANEL_ELEMENTS_REJECTED = 'FETCH_PANEL_ELEMENTS_REJECTED';
 
 export function fetchPanelElements() {
   return (dispatch) => {

@@ -67,7 +67,6 @@
     float: left;
     width: 29.9%;
     padding: 20px 15px;
-    margin-right: 15px;
     border: 2px dashed #999;
     min-height: 50px;
     position: relative;
@@ -185,4 +184,13 @@
     right: -5px;
     top: 0;
     height: 100%;
+}
+
+.column-resize {
+    position: absolute;
+    height: 100%;
+    top: 0px;
+    right: -5px;
+    width: 10px;
+    cursor: col-resize;
 }

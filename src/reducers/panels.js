@@ -2,7 +2,7 @@ import {
   EDIT_ELEMENT,
   ELEMENT_ID,
   SET_OPEN,
-} from '../actions/panels';
+} from '../actions/ActionTypes';
 
 const initialState = {
   editElement: {},
@@ -19,12 +19,12 @@ export default (state = initialState, action) => {
     case EDIT_ELEMENT:
       return {
         ...state,
-        editElement: action.payload
+        editElement: action.payload,
       };
     case ELEMENT_ID:
       return {
         ...state,
-        elementID: action.payload
+        elementID: action.payload,
       };
     case SET_OPEN:
       return {

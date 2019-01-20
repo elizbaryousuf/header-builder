@@ -1,6 +1,8 @@
-export const EDIT_ELEMENT= 'EDIT_ELEMENT';
-export const ELEMENT_ID = 'ELEMENT_ID';
-export const SET_OPEN = 'SET_OPEN';
+import {
+  EDIT_ELEMENT,
+  ELEMENT_ID,
+  SET_OPEN,
+} from './ActionTypes';
 
 export function editElement(element) {
   return {

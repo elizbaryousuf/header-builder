@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import Column from './Column';
+import Column from './Column.jsx';
 import { connect } from 'react-redux';
 import { updateRow, deleteRow } from './actions/elements';
 import './styles/Rows.scss';
@@ -8,7 +8,8 @@ import { faCog, faTimes } from '@fortawesome/free-solid-svg-icons';
 
 class Row extends Component {
     state = {
-        isDisabledRender: false
+        isDisabledRender: false,
+        width: '33%',
     };
 
     componentDidMount() {
@@ -54,7 +55,7 @@ class Row extends Component {
     }
 
     componentWillUnmount() {
-        this.$node.sortable('destroy');
+        //this.$node.sortable('destroy');
     }
 
     handleClick = () => {
@@ -69,9 +70,7 @@ class Row extends Component {
 
         const columnList = columnsOrder.map( ( columnID ) => {
             let column = _.find( columns, { 'id': columnID } );
-            return ( 
-                <Column key={ columnID } id={ column.id } column={ column } openPanel={ this.props.openPanel } />
-            );
+            return ( <Column key={ columnID } id={ column.id } column={ column } openPanel={ this.props.openPanel } /> );
         } );
         
         return (
